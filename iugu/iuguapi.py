@@ -44,9 +44,9 @@ class IuguApi(object):
         return self.base_request(url, 'DELETE')
 
     def make_url(self, paths):
-        url = 'https://api.iugu.com/v1/'
-        for path in paths:
-            url = re.sub(r'/?$', re.sub(r'^/?', '/', str(path)), url)
+        url = 'https://api.iugu.com/v1'
+        url = '/'.join([url] + paths)
+        
         return url
 
 __default_api__ = None
